@@ -1,4 +1,5 @@
 ### vue3-ts-cms
+##### 准备工作
 1. 创建目录 router  store  utils hooks service base-ui views 
 2. 初始化项目  vite 方式， 特点：快
    ```
@@ -97,6 +98,56 @@
       2. 
 
 6. 配置状态管理pinia
+    1. 安装 npm install pinia
+    2. 配置pinia   新建store index.ts
+      ```ts
+      import { createPinia } from 'pinia'
+      const pinia = createPinia()
+      export default pinia
+      ```
+    3. 新建store文件夹  counter.ts
+      ```ts
+      import { defineStore } from "pinia";
 
-7. 
+      const useCountPinia = defineStore('count', {
+        state: () => ({
+          counter: 100
+        }),
+        getters: {
+          doubleCounter(state) {
+            return state.counter * 2
+          }
+        },
+        actions: {
+          changeCounterAction(newCounter: number) {
+            this.counter = newCounter
+          }
+        }
+      })
+
+      export default useCountPinia
+      ```
+    4. 使用pinia
+      ```  vue
+    <template>
+    <div class="main">
+        <h2>{{ counterPinia.counter }}--{{ counterPinia.doubleCounter }}</h2>
+        <button @click="counterClick">修改counter</button>
+    </div>
+    </template>
+
+    <script setup lang="ts">
+    import useCountPinia from '@/store/counter';
+    const counterPinia = useCountPinia()
+
+    function counterClick() {
+      counterPinia.changeCounterAction(1000)
+    }
+    </script>
+      ```
+      
+7. axios网络请求
+
+
+8. 生产环境和开发环境配置
 
