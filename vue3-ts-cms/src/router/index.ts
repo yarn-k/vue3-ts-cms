@@ -12,17 +12,17 @@ const router = createRouter({
       path: '/main',
       name: 'main',
       // 懒加载  魔法注释
-      component: () => import('@/views/main/main.vue')
+      component: () => import('@/views/main/Main.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/login/login.vue')
+      component: () => import('@/views/login/Login.vue')
     },
     // 匹配不正确路径
     {
       path: '/:pathMatch(.*)',
-      component: () => import('@/views/notFound/notFound.vue')
+      component: () => import('@/views/notFound/NotFound.vue')
     }
   ]
 
