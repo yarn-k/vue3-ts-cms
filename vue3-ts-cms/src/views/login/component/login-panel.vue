@@ -16,6 +16,7 @@
             </el-tab-pane>
             <el-tab-pane label="手机登录">
 
+              <!-- 具名插槽（具有名字的插槽）使用 -->
               <template #label>
                 <div class="label">
                   <el-icon><Cellphone /></el-icon>
