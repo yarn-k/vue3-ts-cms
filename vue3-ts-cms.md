@@ -1,5 +1,6 @@
 ### vue3-ts-cms
-##### 准备工作
+#### 准备工作
+##### day01
 1. 创建目录 router  store  utils hooks service base-ui views 
 2. 初始化项目  vite 方式， 特点：快
    ```
@@ -150,4 +151,29 @@
 
 
 8. 生产环境和开发环境配置
+
+##### day02
+1. 集成element plus
+   1. 按需引入
+   2. 全局引入  参考官方文档  
+    app.use(ElementPlus)  全局注册组件  方便和便捷  缺点：打包体积大  没有按需引入方便
+    引入element plus的css样式
+    import 'element-plus/dist/index.css'
+
+2. 登录页的实现 
+   1. 引入icon  官方文档  
+      > https://element-plus.gitee.io/zh-CN/component/icon.html#%E5%9B%BE%E6%A0%87%E9%9B%86%E5%90%88
+   2. 使用具名插槽  
+   ```vue
+      <template #label>
+        <div class="label">
+            <!-- icon图标  -->
+          <el-icon><UserFilled /></el-icon>
+          <span class="text">账号登录</span>
+        </div>
+      </template>
+   ```
+
+3. 登录页面的路由守卫
+
 
