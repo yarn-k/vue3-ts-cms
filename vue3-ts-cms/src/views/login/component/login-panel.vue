@@ -7,14 +7,14 @@
     <div class="tabs">
       <el-tabs type="border-card" stretch v-model="activeName">
         
-        <!-- 1. 账号登录panel -->
-        <el-tab-pane label="账号登录" name="account">
+        <!-- 1. 帐号登录panel -->
+        <el-tab-pane label="帐号登录" name="account">
           <template #label>
             <div class="label">
               <el-icon>
                 <UserFilled />
               </el-icon>
-              <span class="text">账号登录</span>
+              <span class="text">帐号登录</span>
             </div>
           </template>
           <panel-account></panel-account>

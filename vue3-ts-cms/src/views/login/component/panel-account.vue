@@ -1,17 +1,54 @@
 <template>
     <div class="panel-account">
-      <el-form label-width="60px" size="large">
-        <el-form-item label="账号">
-          <el-input/>
+      <el-form 
+        :model="account" 
+        label-width="60px"
+        :rules="accountRules"
+        size="large"
+      >
+        <el-form-item label="帐号" prop="name">
+          <el-input v-model="account.name" />
         </el-form-item>
-        <el-form-item label="密码">
-          <el-input show- />
+        <el-form-item label="密码" prop="password">
+          <el-input show-password v-model="account.password" />
         </el-form-item>
       </el-form>
     </div>
 </template>
 
 <script setup lang="ts">
+
+import type { FormRules } from 'element-plus';
+import { reactive } from 'vue'
+// 1. 定义account数据
+const account = reactive({
+  name: '',
+  password: '',
+})
+
+// 2.定义校验规则
+const accountRules: FormRules = {
+  name: [
+    {
+      // trigger: 'blur' 失去焦点时认证
+      required: true, message: '必须输入帐号信息', trigger: 'blur'
+    },
+    {
+      pattern: /^[a-z0-9]{6,20}$/, 
+      message: '必须是6-20位的字母或数字组成', 
+      trigger: 'change'
+    }
+   
+  ],
+  password: [
+    {
+      required: true, message: '必须输入密码信息', trigger: 'blur'
+    },
+    {
+      min: 3, max: 6, message: '密码必须3位到6位', trigger: 'change'
+    }
+  ]
+}
 
 </script>
 
